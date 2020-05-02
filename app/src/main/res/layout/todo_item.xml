@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:backgroundTint="@color/colorPrimary">
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:layout_centerInParent="true"
+                android:layout_toStartOf="@+id/delete"
+                android:layout_marginEnd="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/delete"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_delete"
+                android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+</LinearLayout>
