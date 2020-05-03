@@ -4,5 +4,5 @@
        android:layout_width="match_parent"
        android:shape="rectangle">
     <size android:height="2dp" />
-    <solid android:color="@color/colorMidGrey" />
+    <solid android:color="@color/colorDarkGrey" />
 </shape>

@@ -6,8 +6,9 @@
     <color name="colorPrimaryDarker">#11004B</color>
     <color name="colorAccent">#311B92</color>
     <color name="colorDark">#000</color>
+    <color name="colorDarkGrey">#0F0F0F</color>
     <color name="colorGrey">#303030</color>
     <color name="colorMidGrey">#646464</color>
-    <color name="colorLightGrey">#BDBDBD</color>
+    <color name="colorLightGrey">#E6E6E6</color>
     <color name="colorWhite">#FFF</color>
 </resources>

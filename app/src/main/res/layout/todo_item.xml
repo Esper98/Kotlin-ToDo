@@ -4,13 +4,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:backgroundTint="@color/colorPrimary">
+        android:padding="8dp">
 
     <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/completed"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

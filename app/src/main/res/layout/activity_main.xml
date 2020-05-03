@@ -23,8 +23,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingVertical="0dp"
-                    android:paddingHorizontal="0dp"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
                     android:background="@color/colorPrimaryDark"
             >
 
@@ -33,15 +33,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorWhite"
-                        android:textSize="30sp"
-                        android:text="23 February"/>
+                        android:textSize="30sp" />
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorLightGrey"
                         android:textSize="16sp"
-                        android:text="3/4 Completed"
                         android:id="@+id/completedTextView"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -49,7 +47,19 @@
                 android:nestedScrollingEnabled="false"
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:paddingBottom="88dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:paddingTop="72dp"
+            android:id="@+id/nothing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/cardview_light_background"
+            android:text="No ToDo's set"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
                 android:visibility="gone"
