@@ -25,6 +25,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             listener?.getInput(input.text.toString())
             this.dismiss()
         }
+        input.requestFocus()
     }
 
     override fun onAttach(context: Context) {
