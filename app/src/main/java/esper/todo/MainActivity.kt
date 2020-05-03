@@ -37,7 +37,7 @@ class MainActivity : InputListener, AppCompatActivity()  {
         recyclerView.adapter = obj_adapter
 
         var calander = Calendar.getInstance()
-        val month = calander.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())
+        val month = calander.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()).capitalize()
         val day = calander.get(Calendar.DAY_OF_MONTH)
 
         date.text = "$day $month"
