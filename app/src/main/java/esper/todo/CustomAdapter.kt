@@ -26,6 +26,9 @@ class CustomAdapter(var userList: ArrayList<ToDo>, private val onDeleteListener:
         holder.itemView.setOnClickListener { view ->
             onClickListener.invoke(view, userList[position])
         }
+        holder.itemView.completed.setOnClickListener { view ->
+            onClickListener.invoke(view, userList[position])
+        }
     }
 
     //this method is giving the size of the list
