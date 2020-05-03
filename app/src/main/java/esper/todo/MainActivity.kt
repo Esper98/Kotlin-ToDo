@@ -5,6 +5,8 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import androidx.room.Room
@@ -36,15 +38,11 @@ class MainActivity : InputListener, AppCompatActivity()  {
         recyclerView.layoutManager = LinearLayoutManager(this, VERTICAL, false)
         recyclerView.adapter = obj_adapter
 
-        var calander = Calendar.getInstance()
-        val month = calander.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()).capitalize()
-        val day = calander.get(Calendar.DAY_OF_MONTH)
+        var calender = Calendar.getInstance()
+        val month = calender.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()).capitalize()
+        val day = calender.get(Calendar.DAY_OF_MONTH)
 
         date.text = "$day $month"
-
-        //val divider = DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL)
-        //divider.setDrawable(ContextCompat.getDrawable(baseContext, R.drawable.abc_list_divider_material)!!)
-        //recyclerView.addItemDecoration(divider)
 
         initFab()
 
@@ -75,13 +73,15 @@ class MainActivity : InputListener, AppCompatActivity()  {
     }
 
     override fun getInput(myString: String) {
-        val todo = ToDo(0, myString, false)
-        toDos.add(todo)
-        obj_adapter.notifyDataSetChanged()
-        GlobalScope.launch {
-            db.toDoDao().insert(todo)
+        if (myString.isNotEmpty()) {
+            val todo = ToDo(0, myString, false)
+            toDos.add(todo)
+            obj_adapter.notifyDataSetChanged()
+            GlobalScope.launch {
+                db.toDoDao().insert(todo)
+            }
+            setCompleted()
         }
-        setCompleted()
     }
 
     private fun removeToDo(view: View, toDo: ToDo) {
@@ -97,10 +97,18 @@ class MainActivity : InputListener, AppCompatActivity()  {
         toDo.completed = !toDo.completed
         view.completed.toggle()
         obj_adapter.notifyDataSetChanged()
+        GlobalScope.launch {
+            db.toDoDao().update(toDo)
+        }
         setCompleted()
     }
 
     private fun setCompleted() {
+        if (toDos.isEmpty()) {
+            nothing.visibility = View.VISIBLE
+        } else {
+            nothing.visibility = View.GONE
+        }
         val count = toDos.count { it.completed }
         completedTextView.text = "Completed: $count/${toDos.size}"
     }
